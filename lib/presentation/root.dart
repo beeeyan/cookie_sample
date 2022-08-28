@@ -1,14 +1,16 @@
 import 'package:cookie_sample/enum/bottom_bar_page_type.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class RootPage extends ConsumerWidget {
-  const RootPage({super.key});
+class RootPage extends StatelessWidget {
+  const RootPage({
+    super.key,
+    this.pageType = BottomBarPageType.webpage1,
+  });
+
+  final BottomBarPageType pageType;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final pageType = ref.watch(bottomBarPageTypeProvider);
-    final pageTypeNotifier = ref.watch(bottomBarPageTypeProvider.notifier);
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(pageType.title),
@@ -18,9 +20,17 @@ class RootPage extends ConsumerWidget {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: pageType.index,
-        onTap: (index) =>
-            pageTypeNotifier.update((state) => BottomBarPageType.values[index]),
-        items:  <BottomNavigationBarItem>[
+        onTap: (index) {
+          Navigator.pushReplacement<void, void>(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => RootPage(
+                pageType: BottomBarPageType.values[index],
+              ),
+            ),
+          );
+        },
+        items: <BottomNavigationBarItem>[
           for (final pageType in BottomBarPageType.values)
             BottomNavigationBarItem(
               icon: pageType.buttonIcon,
