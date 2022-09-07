@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 class PartWebViewPage extends StatelessWidget {
   const PartWebViewPage({
     super.key,
-    required this.url,
+    required this.url1,
+    required this.url2,
   });
 
-  final String url;
+  final String url1;
+  final String url2;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class PartWebViewPage extends StatelessWidget {
           height: 250,
           width: 300,
           child: WebViewPage(
-            url: url,
+            url: url1,
           ),
         ),
         const SizedBox(
@@ -29,6 +31,13 @@ class PartWebViewPage extends StatelessWidget {
         ),
         const Center(
           child: Text('アプリ部分'),
+        ),
+        SizedBox(
+          height: 250,
+          width: 300,
+          child: WebViewPage(
+            url: url2,
+          ),
         ),
       ],
     );

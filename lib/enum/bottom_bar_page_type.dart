@@ -30,7 +30,9 @@ enum BottomBarPageType {
     'https://www.amazon.co.jp/',
     Icon(Icons.bookmark_border),
     PartWebViewPage(
-      url: 'https://www.amazon.co.jp/',
+      url1: 'https://www.amazon.co.jp/',
+      url2: 'https://news.yahoo.co.jp/pickup/6437927',
+
     ),
   ),
   normal(
