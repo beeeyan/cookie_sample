@@ -24,7 +24,7 @@ class WebViewPage extends ConsumerWidget {
         // final cookies = await cookieManager.getCookies(url);
         // await cookieManager.setCookies(cookies);
         // Cookieを設定した後に、URLを読み込む
-        await controller.loadUrl(url);
+        await controller.loadUrl('https://beeeyan.github.io/learning-lineup/');
       },
     );
   }

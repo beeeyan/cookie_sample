@@ -1,14 +1,17 @@
+import 'package:cookie_sample/presentation/in_app_web_view.dart';
 import 'package:cookie_sample/presentation/part_web_view.dart';
 import 'package:cookie_sample/presentation/web_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../presentation/normal_view.dart';
 
 final bottomBarPageTypeProvider =
     StateProvider<BottomBarPageType>((ref) => BottomBarPageType.webpage2);
 
 enum BottomBarPageType {
   webpage1(
-    'アマゾントップ',
+    'WebView(公式)',
     'https://www.amazon.co.jp/',
     Icon(Icons.bookmark_border),
     WebViewPage(
@@ -35,13 +38,20 @@ enum BottomBarPageType {
 
     ),
   ),
+  webpage4(
+    'InAppWebView',
+    'https://www.amazon.co.jp/',
+    Icon(Icons.bookmark_border),
+    InAppWebPage(
+      url: 'https://www.amazon.co.jp/',
+
+    ),
+  ),
   normal(
-    '普通のWidget',
+    'メニュー',
     '',
     Icon(Icons.bookmark_outlined),
-    Center(
-      child: Text('普通'),
-    ),
+    NormalViewPage(),
   );
 
   const BottomBarPageType(

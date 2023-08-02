@@ -31,7 +31,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_hooks: ^0.18.5+1
+  flutter_inappwebview: ^5.7.2+3
   hooks_riverpod: ^1.0.4
+  url_launcher: ^6.1.10
   webview_cookie_manager: ^2.0.6
   webview_flutter: ^3.0.4
 
